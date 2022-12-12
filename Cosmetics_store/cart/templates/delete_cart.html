@@ -1,0 +1,4 @@
+<form action="{% url 'cart:delete_cart' %}?cart_id={{ cart.pk }}&next={{ request.path }}" method="post">
+    {% csrf_token %}
+    <button type="submit" class=" btn btn-outline-info">Delete</button>
+</form>

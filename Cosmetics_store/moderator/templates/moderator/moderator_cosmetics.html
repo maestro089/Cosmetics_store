@@ -1,0 +1,34 @@
+﻿{% extends 'base.html' %}
+{% block title %}Страница администратора{% endblock title %}
+
+{% block content %}
+    {% include 'menu_moderator.html'%}
+    <div class="container mt-5">
+        
+        <a href="{% url "moderator:create_cosmetics"%}">Создать</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Цена</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ad in cosmetic %}
+                <tr>
+                    <th scope="row">{{ad.pk}}</th>
+                    <td>{{ad.title}}</td>
+                    <td>{{ad.price}}</td>
+                    <td>
+                        <a href="{% url "moderator:edit_cosmetics" ad.id %}">Редактировать</a>
+                        <a href="{% url "moderator:delete_cosmetics" ad.id %}">Удалить</a>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %} 

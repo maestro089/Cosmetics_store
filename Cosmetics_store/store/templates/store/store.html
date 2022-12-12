@@ -1,0 +1,17 @@
+﻿{% extends 'base.html' %}
+{% block title %}Магазин{% endblock title %}
+{% block content %}
+
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    {% if cosmetic %}
+    <div class="col-10 row">
+        {% for ad in cosmetic %}
+        {% include 'card_cosmetic.html' %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <h1>Мы ни чего не нашли:(</h1>
+    {% endif %}
+</div>
+{% endblock %}
